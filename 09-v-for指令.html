@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 
+        1. 引入 需要的依赖库
+     -->
+    <script src="https://cn.vuejs.org/js/vue.js"></script> 
+   <!--  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script> -->
+    <title>09</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+           <!--<li>{{words[0].text</li>
+            <li>{{words[1].text</li>
+            <li>{{words[2].text</li>>-->
+            <li v-for="item,index in words"
+            v-bing:key="index"
+            >
+            <!--index:索引
+                item:表示每一项
+                item.text：表示每一项中的内容
+            -->
+             {{index}}:{{item.text}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+let vm = new Vue({
+    el:"#app",
+    data:{
+        words:[
+            {text:"键盘敲烂，工资过万"},
+            {text:"写代码是一件非常快乐的事情"},
+            {text:"整一个流批的项目"}
+            
+        ]
+    }
+})
+  
+</script>
+</html>

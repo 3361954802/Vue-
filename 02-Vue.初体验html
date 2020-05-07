@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <!--1.引用 需要的依赖库-->
+        
+        <style>
+            #message{color: blueviolet;}
+        </style>
+    </head>
+    <title>02</title>
+    <body>
+        <div id="app">
+            <h3 id="message">{{message}}</h3>
+        </div>
+    </body>
+    <script>
+        document.getElementById("message").innerHTML = "来，跟我谈谈你是怎样看待联合国对疫情的看法的"
+    </script>
+</html>

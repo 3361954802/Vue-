@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07</title>
+        <!-- 
+        1. 引入 需要的依赖库
+        
+     -->
+     <script src="https://cn.vuejs.org/js/vue.js"></script> 
+</head>
+<body>
+
+    <div class="app">
+      <button v-on:click="btnClick" >点击</button>
+      <img v-bind:src="src" alt="" id="img">
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:".app",
+        data:{
+            title:"看到啦lalal",
+            src:""
+        },
+        methods: {
+            btnClick:function(){
+                // 修改 图片 src 地址
+            this.src = "http://img5.imgtn.bdimg.com/it/u=3437217665,1564280326&fm=26&gp=0.jpg "
+            }
+        },
+    })
+</script>
+</html>

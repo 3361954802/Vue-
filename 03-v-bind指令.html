@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <!--1. 引入 需要的依赖库-->
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+    </head>
+    <body>
+        <!--class 样式-->
+        <div class=" app">
+            <span v-bind:title="title">标题后面还有啥？</span>
+        </div>
+        <!--    <div>
+                    <span title="这是第二个></span>"
+                </div>-->
+    </body>
+    <script>
+        // class 样式
+        let vm = new Vue({
+            el:".app",
+            data:{
+                title:"没啥啦！！"
+            }
+        })
+        // let vm = new Vue({
+        //     el:"#app",
+        //     data:{
+        //         title:"222222"
+        //     }
+        // })
+    </script>
+</html>

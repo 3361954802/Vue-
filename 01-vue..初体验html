@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--1. 引入 需要的依赖库-->
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+                <p>{{message}}</p>
+        </div>
+    </body>
+    <script>
+        // function Vue(){}   Vue 类似于函数
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                message:"这有一只哈士奇"
+            }
+        })
+    </script>
+</html>

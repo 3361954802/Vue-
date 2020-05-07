@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <!--1.引用 需要的依赖库-->
+        <script src="https://cn.vuejs.org/js/vue.js"></script> 
+    </head>
+    <title>06</title>
+    <body>
+        <div id="app">
+           <button v-on:click="btnClick">点击按钮</button>
+        </div>
+    </body>
+    <script>
+   let vm = new Vue({
+       el:".app",
+       data:{
+           title:"啥也不是"
+       },
+       methods:{
+           btnClick:function(){
+               alert("啥也不是");
+           }
+       },
+   })
+ 
+    </script>
+</html>

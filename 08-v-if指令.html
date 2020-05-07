@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--1. 引入 需要的依赖库-->
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+                <p v-if="condition">{{message}}</p>
+                <p v-show="condition">{{message}}</p>
+        </div>
+    </body>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                condition:false,
+                //condition:true,
+                message:"很耐斯哦"
+            }
+        })
+    </script>
+</html>
