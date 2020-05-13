@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微博发送帖子</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1811873_d07no4g3mzb.css">
+    <style>
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+        #app{
+            width: 500px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        #app textarea{
+            width: 460px;
+            height: 100px;
+            margin: 10px 18px;
+            outline: none;
+            font-size: 16px;
+        }
+        #app button{
+            float: right;
+            margin:0 20px 15px 0;
+            background-color: #F5C19F;
+            width: 80px;
+            height: 36px;
+            border: 0;
+            border-radius: 3px;
+            color: white;
+            cursor:pointer;
+        }
+        
+        ul li{
+            margin: 0 0 15px 18px;
+            width: 397px;
+            padding: 10px 60px 10px 5px;
+            position: relative;
+            display: flex;
+            border: 1px solid #F5C19F;
+			background-color:pink;
+        }
+        ul li span{
+            float: right;
+            position: absolute;
+            right: 5px;
+            align-self: center;
+            cursor:pointer;
+        }
+        .loop{
+            font-size: 14px;
+            padding-top: 10px;
+
+        }
+        .loop span:first-child{
+            color: #7B8DC2;
+            margin-left: 18px;
+        }
+        .loop span:last-child{
+            color: #EE9174;
+            float: right;
+            margin-right: 20px;
+        }
+        .loop .mbot{
+            /* display: flex; */
+            float: left;
+            margin-left: 18px;
+			background-color:#87CEEB;
+        }
+        .loop .mbot span{
+            font-size: 12px;
+            color: #5B5B5B;
+            line-height: 38px;
+            margin-right: 10px;
+        }
+        .bot .mbot span i{
+            margin-right: 4px;
+            vertical-align:bottom;
+        }
+		body{background-image: url(http://img.zcool.cn/community/038a69b58d8b18ca801219c7704c7a0.gif);}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="loop">
+            <span>有什么新鲜事想告诉大家</span>
+			
+            <span>热门微博</span>
+        </div>
+        <textarea v-model="msg" style="resize: none;background-color:#EEFFFF;"></textarea>
+        <div class="bot">
+            <div class="mbot">
+                <span style="margin-left: 0px;"><img src="关于我们,笑脸.svg" height="22px"><a href="#" target="_black">表情</a></span>
+            <span><img src="图片.svg" height="20px"><a href="https://www.baidu.com/s?ie=utf-8&isbd=1&isid=697FE2AFB3D32049&ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&ch=1&tn=request_12_pg&wd=%E5%9B%BE%E7%89%87&rsv_pq=e5887a9200158c18&rsv_t=ece1rQncn%2B7A8EDQ3IqmZ99CCZpxzjrg7K2vQ0G0REuKL88Vh4S9O9NRo6fMJDvFjngxBg&rqlang=cn&rsv_enter=1&rsv_sug3=19&rsv_sug1=18&inputT=6060&rsv_sug4=6060&rsv_sid=1440_31169_21099_22157&_ss=1&clist=&hsug=&f4s=1&pstg=5&csor=1&_cr1=28800" target="_black">图片</a></span>
+            <span><img src="视频.svg" height="20px"><a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&ch=1&tn=request_12_pg&wd=%E8%A7%86%E9%A2%91&oq=%25E5%259B%25BE%25E7%2589%2587&rsv_pq=bdc39664001565c5&rsv_t=e160yqc%2FqxNFiwVnBpILcC2DUqp4DQNAU9XZYgck62mddZJoZJ9j%2ByjRDEzCUMKUub9Jcw&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_sug3=8&rsv_sug1=4&rsv_sug7=101&rsv_sug2=0&rsv_btype=t&inputT=1866&rsv_sug4=2665" target="_black">视频</a></span>
+            <span><img src="话题.svg" height="20px"><a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&ch=1&tn=request_12_pg&wd=%E8%AF%9D%E9%A2%98&oq=%25E8%25A7%2586%25E9%25A2%2591&rsv_pq=eb4f237e00159e8e&rsv_t=4f965Ec%2FpPwo2Pb2B8mG9Av73RiFNe5%2FIaiGsC5y9IMjleD%2B%2BdnzTCrI9UA4RWIWy7mRTA&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_btype=t&inputT=1738&rsv_sug3=17&rsv_sug1=7&rsv_sug7=100&rsv_sug2=0&rsv_sug4=2390" target="_black">话题</a></span>
+            <span style="width: 70px;"><img src="闪电.svg" height="22px"><a href="#" target="_black">头条文章</a></span>
+            </div>
+            <button @click="add">发送</button>
+        </div>
+        <p style="clear: both;"></p>
+        <ul>
+            <li v-for="(i,index) in arr">
+                {{i}}
+                <span @click="remove(index)">删除</span>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el:"#app",
+        data:{
+            arr:[],
+            msg:''
+        },
+        methods:{
+            add:function(){
+                if(this.msg.trim()==''){    
+                    alert("啥也不是！！");
+                }else{
+                    this.arr.unshift(this.msg); 
+                    this.msg = ''
+                }
+            },
+            remove:function(index){
+                this.arr.splice(index,1); 
+            }
+        }
+    })
+</script>
+</html>
